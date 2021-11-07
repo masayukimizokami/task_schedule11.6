@@ -2,6 +2,10 @@
   <div class="information">
     <h2>スケジュール新規作成</h2>
   </div>
+    <% if flash[:delete] %>
+    <p class="alert delete"><%= flash[:delete] %></p>
+    <% end %>
+  
 
    <%= render "shared/error", obj: @schedule%>　
  

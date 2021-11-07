@@ -10,9 +10,10 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(params.require(:schedule).permit(:title, :start_day, :end_day, :all_day, :memo))
     if @schedule.save
-      flash[:notice] = "ユーザーを新規登録しました"
+      flash[:notice] = "スケジュールを新規登録しました"
       redirect_to :schedules
     else
+      flash[:delete] = "スケジュールを新規登録できませんでした"
       render "new"
     end
   end
@@ -31,7 +32,7 @@ class SchedulesController < ApplicationController
         flash[:notice] = "スケジュールを更新しました"
         redirect_to :schedules
       else
-        flash[:notice] = "スケジュールを更新できませんでした"
+        flash[:delete] = "スケジュールを更新できませんでした"
         render "edit"
       end
     end
