@@ -2,6 +2,9 @@
   <div class="information">
     <h2>スケジュール新規作成</h2>
   </div>
+
+   <%= render "shared/error", obj: @schedule%>　
+ 
  
     <%= form_with model: @schedule do |f| %>
       <table>
