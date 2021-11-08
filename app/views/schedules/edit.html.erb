@@ -3,6 +3,11 @@
     <h2>スケジュール編集</h2>
   </div>
 
+  <% if flash[:delete] %>
+    <p class="alert delete"><%= flash[:delete] %></p>
+  <% end %>
+  <%= render "shared/error", obj: @schedule %>
+
     <%= form_with model: @schedule do |f| %>
       <table>
         <tr>

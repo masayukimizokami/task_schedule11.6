@@ -8,6 +8,10 @@
       <p class="notice"><%= flash[:notice] %></p>
     <% end %>
 
+  <% if flash[:delete] %>
+    <p class="alert delete"><%= flash[:delete] %></p>
+  <% end %>
+
     <table>
       <thead>
         <tr>
@@ -37,8 +41,8 @@
               <% end %>
             </td>
             <td><%= schedule.updated_at.strftime('%Y年%m月%d日 %H時%M分') %></td>
-            <td> <%= link_to "参照", schedule %></td>
-            <td><%= link_to "編集", [:edit, schedule] %> </td>
+             <td> <%= link_to "参照", schedule %></td>
+             <td><%= link_to "編集", [:edit, schedule] %> </td>
              <td><%= link_to "削除", schedule, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
             </tr>
         <% end %>
